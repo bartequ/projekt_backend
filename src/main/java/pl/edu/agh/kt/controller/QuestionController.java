@@ -1,6 +1,7 @@
 package pl.edu.agh.kt.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.edu.agh.kt.entity.Question;
@@ -18,6 +19,7 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(path = "/questions")
     public List<Question> getQuestions() {
         return questionService.getAllQuestions();

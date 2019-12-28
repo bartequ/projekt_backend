@@ -16,8 +16,13 @@ public class Question {
     @NotNull
     private String content;
 
-    @NotNull
-    private String answers;
+    private String answerA;
+
+    private String answerB;
+
+    private String answerC;
+
+    private String answerD;
 
     @NotNull
     private String correct;
@@ -30,8 +35,20 @@ public class Question {
         return content;
     }
 
-    public String getAnswers() {
-        return answers;
+    public String getAnswerA() {
+        return answerA;
+    }
+
+    public String getAnswerB() {
+        return answerB;
+    }
+
+    public String getAnswerC() {
+        return answerC;
+    }
+
+    public String getAnswerD() {
+        return answerD;
     }
 
     public String getCorrect() {
@@ -46,8 +63,20 @@ public class Question {
         this.content = content;
     }
 
-    public void setAnswers(String answers) {
-        this.answers= answers;
+    public void setAnswerA(String answerA) {
+        this.answerA = answerA;
+    }
+
+    public void setAnswerB(String answerB) {
+        this.answerB = answerB;
+    }
+
+    public void setAnswerC(String answerC) {
+        this.answerC = answerC;
+    }
+
+    public void setAnswerD(String answerD) {
+        this.answerD = answerD;
     }
 
     public void setCorrect(String correct) {
