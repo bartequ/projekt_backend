@@ -5,6 +5,7 @@ import javax.validation.ConstraintValidatorContext;
 
 public class UsernameValidator implements ConstraintValidator<ValidateUsername, String> {
 
+    //TODO Optionally add password and email validator and extend this one
     @Override
     public void initialize(ValidateUsername constraintAnnotation) {
     }
