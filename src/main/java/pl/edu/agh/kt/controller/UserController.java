@@ -29,6 +29,11 @@ public class UserController {
     @Autowired
     private JwtUtil jwtTokenUtil;
 
+    @GetMapping(path = "/error")
+    public String error() {
+        return "Error";
+    }
+
     @GetMapping(path = "/test")
     public String hello() {
         return "Test successful";
