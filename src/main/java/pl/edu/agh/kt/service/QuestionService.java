@@ -5,12 +5,13 @@ import org.springframework.stereotype.Service;
 import pl.edu.agh.kt.entity.Question;
 import pl.edu.agh.kt.repository.QuestionRepository;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class QuestionService {
 
-    //TODO Add function to query 5 random questions from db
     private QuestionRepository questionRepository;
 
     @Autowired
@@ -20,5 +21,18 @@ public class QuestionService {
 
     public List<Question> getAllQuestions() {
         return questionRepository.findAll();
+    }
+
+    public List<Question> getRandQuestions(int amountOfQuestions) {
+        List<Question> allQuestions = getAllQuestions();
+        List<Question> randomQuestions = new ArrayList<>();
+        for (int i = 0; i <= amountOfQuestions; i++) {
+            int randomInt = ThreadLocalRandom.current().nextInt(1, allQuestions.size());
+            Question question = allQuestions.get(randomInt);
+            if (!randomQuestions.contains(question)) {
+                randomQuestions.add(question);
+            }
+        }
+        return randomQuestions;
     }
 }
