@@ -30,4 +30,10 @@ public class QuestionController {
     public List<Question> getRandQuestions() {
         return questionService.getRandQuestions(5);
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping(path = "/randQuestion")
+    public List<Question> getRandQuestion() {
+        return questionService.getRandQuestions(5);
+    }
 }
