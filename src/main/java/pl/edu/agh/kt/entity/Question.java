@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Question {
-
+//CREATE TABLE pet (name VARCHAR(20), owner VARCHAR(20), species VARCHAR(20), sex CHAR(1), birth DATE, death DATE)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

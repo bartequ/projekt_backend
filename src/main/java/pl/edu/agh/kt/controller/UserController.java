@@ -1,6 +1,8 @@
 package pl.edu.agh.kt.controller;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -52,13 +54,10 @@ public class UserController {
                     new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
             );
         } catch (BadCredentialsException e) {
-            throw new Exception("Incorrect username or password", e);
+            return new ResponseEntity<>("Missing login or password.", HttpStatus.BAD_REQUEST);
         }
-
         final User user = userService.findUserByUsername(authRequest.getUsername());
-
         final String jwt = jwtTokenUtil.generateToken(user);
-
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
     }
 }

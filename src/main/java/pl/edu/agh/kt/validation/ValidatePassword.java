@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = PasswordValidator.class)
 public @interface ValidatePassword {
 
-    String message() default "{pl.edu.agh.kt.validation.message}";
+    String message() default "{pl.edu.agh.kt.validation.user}";
 
     Class<?>[] groups() default {};
 
