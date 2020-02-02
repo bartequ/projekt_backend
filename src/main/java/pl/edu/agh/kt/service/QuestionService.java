@@ -35,7 +35,7 @@ public class QuestionService {
     private void getQuestion(List<Question> allQuestions, List<Question> randomQuestions) {
         int randomInt = ThreadLocalRandom.current().nextInt(1, allQuestions.size());
         Question question = allQuestions.get(randomInt);
-        if (!randomQuestions.contains(allQuestions)) {
+        if (!randomQuestions.contains(question)) {
             randomQuestions.add(question);
         } else {
             getQuestion(allQuestions, randomQuestions);
